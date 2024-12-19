@@ -16,6 +16,7 @@ CLIENT_SECRET = env["CLIENT_SECRET"]
 AUTHORIZE_URL = env["AUTHORIZE_URL"]
 TOKEN_URL = env["TOKEN_URL"]
 REVOKE_TOKEN_URL = env["REVOKE_TOKEN_URL"]
+REDIRECT_URI=env["REDIRECT_URI"]
 
 # import logging
 # logging.basicConfig(level=logging.INFO)
@@ -33,7 +34,7 @@ if "id_token" not in st.session_state:
     result = oauth2.authorize_button(
         name="Login with Salesforce",
         icon="https://www.salesforce.com/etc/designs/sfdc-www/en_us/favicon.ico",
-        redirect_uri="http://localhost:8501",
+        redirect_uri=REDIRECT_URI, #"http://localhost:8501"
         scope="full",
         use_container_width=True
     )
